@@ -7,31 +7,31 @@
     <meta name="description" content="Superman - AI 技术应用专家，专注于 AI 大模型应用、Web 开发、数据分析">
     <style>
         :root {
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
             --bg-primary: #FFFFFF;
-            --bg-secondary: #F5F5F7;
-            --text-primary: #1D1D1F;
-            --text-secondary: #86868B;
-            --accent: #0066CC;
-            --accent-hover: #0077ED;
+            --bg-secondary: #F8F9FA;
+            --text-primary: #202124;
+            --text-secondary: #5F6368;
+            --border: #DADCE0;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-            background: var(--bg-primary);
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            background: var(--bg-secondary);
             color: var(--text-primary);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
         }
-        .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
         
         /* Navigation */
         nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding: 14px 0;
+            background: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            padding: 16px 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -42,59 +42,55 @@
             align-items: center;
         }
         nav .logo {
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 500;
             color: var(--text-primary);
-            letter-spacing: -0.02em;
         }
-        nav ul { list-style: none; display: flex; gap: 36px; }
+        nav .logo span { color: var(--google-blue); }
+        nav ul { list-style: none; display: flex; gap: 32px; }
         nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 400;
+            font-size: 14px;
+            font-weight: 500;
             transition: color 0.2s;
         }
-        nav a:hover { color: var(--accent); }
+        nav a:hover { color: var(--google-blue); }
         
         /* Hero */
         .hero {
-            padding: 160px 0 120px;
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, var(--google-blue) 0%, #1a73e8 100%);
+            color: white;
             text-align: center;
-            background: var(--bg-primary);
         }
         .hero h1 {
-            font-size: 56px;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.07;
+            font-size: 52px;
+            font-weight: 400;
             margin-bottom: 16px;
-            color: var(--text-primary);
+            letter-spacing: -0.5px;
         }
         .hero .title {
-            font-size: 24px;
-            color: var(--text-secondary);
-            font-weight: 400;
+            font-size: 22px;
+            opacity: 0.9;
             margin-bottom: 24px;
-            letter-spacing: 0.01em;
+            font-weight: 400;
         }
         .hero p {
-            font-size: 19px;
-            color: var(--text-secondary);
+            font-size: 18px;
+            opacity: 0.9;
             max-width: 680px;
             margin: 0 auto;
-            line-height: 1.5;
-            font-weight: 400;
+            line-height: 1.7;
         }
         
         /* Section */
-        section { padding: 100px 0; }
+        section { padding: 80px 0; }
         section h2 {
-            font-size: 40px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 60px;
-            text-align: center;
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 48px;
+            color: var(--text-primary);
         }
         
         /* Skills */
@@ -104,74 +100,78 @@
             gap: 24px;
         }
         .skill-card {
-            background: var(--bg-secondary);
-            padding: 40px 32px;
-            border-radius: 18px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            transition: box-shadow 0.3s, transform 0.3s;
+            border: 1px solid var(--border);
         }
         .skill-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
         }
         .skill-card h3 {
-            font-size: 21px;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 500;
             margin-bottom: 12px;
-            letter-spacing: -0.01em;
+            color: var(--google-blue);
         }
         .skill-card p {
             font-size: 15px;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.7;
         }
         
         /* Work */
         .work-item {
-            padding: 48px 0;
-            border-top: 1px solid rgba(0,0,0,0.1);
+            background: white;
+            padding: 40px 32px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            border: 1px solid var(--border);
         }
-        .work-item:first-child { border-top: none; }
         .work-item h3 {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 14px;
-            letter-spacing: -0.02em;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--text-primary);
         }
         .work-item .tags {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
         .work-item .tag {
             display: inline-block;
-            background: var(--accent);
+            background: var(--google-blue);
             color: white;
             padding: 6px 14px;
-            border-radius: 100px;
+            border-radius: 4px;
             font-size: 13px;
             font-weight: 500;
-            margin-right: 10px;
+            margin-right: 8px;
             margin-bottom: 8px;
         }
         .work-item .tag.highlight {
-            background: var(--text-primary);
+            background: var(--google-red);
         }
         .work-item p {
-            font-size: 17px;
+            font-size: 16px;
             color: var(--text-secondary);
             line-height: 1.7;
-            max-width: 720px;
         }
         
         /* Contact */
         .contact {
-            background: var(--bg-secondary);
-            padding: 100px 0;
+            background: white;
+            padding: 80px 0;
             text-align: center;
         }
         .contact h2 {
             margin-bottom: 20px;
         }
         .contact p {
-            font-size: 19px;
+            font-size: 18px;
             color: var(--text-secondary);
             max-width: 580px;
             margin: 0 auto 40px;
@@ -186,35 +186,37 @@
             text-decoration: none;
             font-size: 15px;
             font-weight: 500;
-            padding: 12px 24px;
-            background: var(--accent);
-            border-radius: 980px;
-            transition: background 0.2s;
+            padding: 12px 28px;
+            background: var(--google-blue);
+            border-radius: 4px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
         .contact-links a:hover {
-            background: var(--accent-hover);
+            background: #1a73e8;
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.4);
         }
         
         /* Footer */
         footer {
-            background: var(--bg-primary);
-            padding: 40px 0;
-            border-top: 1px solid rgba(0,0,0,0.1);
+            background: var(--bg-secondary);
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
             text-align: center;
         }
         footer p {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-secondary);
         }
         
         /* Mobile */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 40px; }
-            .hero p { font-size: 17px; }
+            .hero h1 { font-size: 38px; }
+            .hero p { font-size: 16px; }
             .skills-grid { grid-template-columns: 1fr; }
             nav ul { display: none; }
             .contact-links { flex-direction: column; }
-            section { padding: 60px 0; }
+            section { padding: 50px 0; }
         }
     </style>
 </head>
@@ -222,7 +224,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">Superman</div>
+            <div class="logo">Super<span>man</span></div>
             <ul>
                 <li><a href="#skills">技能</a></li>
                 <li><a href="#work">作品</a></li>
@@ -297,9 +299,9 @@
             <div class="work-item">
                 <h3>Anthropic Skills 研究与实战</h3>
                 <div class="tags">
-                    <span class="tag highlight">技能开发</span>
+                    <span class="tag">技能开发</span>
                     <span class="tag">品牌规范</span>
-                    <span class="tag">OpenClaw</span>
+                    <span class="tag highlight">OpenClaw</span>
                 </div>
                 <p>
                     深入研究 Anthropic 官方技能库，包括品牌视觉规范、画布设计、算法艺术生成等。
@@ -310,8 +312,8 @@
             <div class="work-item">
                 <h3>AI 工作流设计与咨询</h3>
                 <div class="tags">
-                    <span class="tag highlight">企业服务</span>
-                    <span class="tag">自动化</span>
+                    <span class="tag">企业服务</span>
+                    <span class="tag highlight">自动化</span>
                     <span class="tag">咨询</span>
                 </div>
                 <p>
@@ -323,8 +325,8 @@
             <div class="work-item">
                 <h3>个人官网与 Web 项目</h3>
                 <div class="tags">
-                    <span class="tag highlight">Web 开发</span>
-                    <span class="tag">GitHub Pages</span>
+                    <span class="tag">Web 开发</span>
+                    <span class="tag highlight">GitHub Pages</span>
                     <span class="tag">部署</span>
                 </div>
                 <p>
@@ -353,7 +355,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>Copyright © 2026 Superman. All rights reserved.</p>
+            <p>© 2026 Superman. All rights reserved.</p>
             <p style="margin-top: 8px;">Built with AI · Powered by OpenClaw</p>
         </div>
     </footer>
